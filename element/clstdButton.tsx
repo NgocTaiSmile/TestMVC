@@ -1,5 +1,6 @@
 import { IconType } from "react-icons";
 import React from "react";
+import { useListCert } from "../MVCmodel";
 
 interface ButtonProps {
   label: string;
@@ -7,17 +8,22 @@ interface ButtonProps {
   outline?: boolean;
   small?: boolean;
   icon?: IconType;
+  action: () => void
 }
 
+//can we create 2 interface and combine
 const Button: React.FC<ButtonProps> = ({ 
   label, 
   disabled, 
   outline,
   small,
   icon: Icon,
+  action
 }) => {
+  const data = useListCert().data
   return ( 
     <button
+      onClick = {action}
       disabled={disabled}
       className={`relative w-20 rounded-lg
               disabled:opacity-70 disabled:cursor-not-allowed hover:opacity-80 transition

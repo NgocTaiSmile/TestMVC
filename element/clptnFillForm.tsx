@@ -3,20 +3,24 @@ import React from 'react';
 import { IoMdClose } from "react-icons/io";
 
 import Button from './clstdButton';
+import { useListCert } from '../MVCmodel';
 
 interface ModalProps {
   title?: string;
   body?: React.ReactElement;
   actionLabel: string;
+  actSave: () => void;
+  actInput?: () => void;
 }
 
 const FormTemplate: React.FC<ModalProps> = ({ 
     title,
     body,
-    actionLabel
+    actionLabel,
+    actSave,
+    actInput
   }) => {
 
-  
     return(
         <>
       <div id ="bao ngoai" 
@@ -57,7 +61,8 @@ const FormTemplate: React.FC<ModalProps> = ({
               <div className="grow flex flex-col-reverse gap-2 p-1">
                 <div className="flex flex-row-reverse items-center gap-4 w-full">
                   <Button 
-                    label={actionLabel} 
+                    label={actionLabel}
+                    action = {actSave}
                   />
                 </div>
               </div>
