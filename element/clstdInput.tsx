@@ -6,7 +6,8 @@ interface InputProps {
   label: string;
   type?: string;
   value:string;
-  actChange: (e:ChangeEvent) => void
+  actChange: (e:ChangeEvent) => void;
+  actTab?: () => void;
 }
 
 const Input: React.FC<InputProps> = ({
@@ -14,7 +15,8 @@ const Input: React.FC<InputProps> = ({
   label,
   type = "text",
   value,
-  actChange
+  actChange,
+  actTab
 }) => {
 
   return (
@@ -25,6 +27,7 @@ const Input: React.FC<InputProps> = ({
         type={type}
         value = {value}
         onChange={(e) => actChange(e)}
+        onBlur={actTab}
         className="w-full p-2 pb-0.5 pt-5 font-light bg-white border-2 rounded-2xl outline-none
                   transition disabled:opacity-70 disabled:cursor-not-allowed
                   peer"
