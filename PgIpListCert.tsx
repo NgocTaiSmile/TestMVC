@@ -1,4 +1,6 @@
+import { createRoot } from 'react-dom/client';
 import React, { act } from "react";
+import page1 from './PgIpListCert.tsx'
 
 import Input from './element/clstdInput.tsx';
 import FormTemplate from './element/clptnFillForm.tsx';
@@ -38,3 +40,6 @@ const page = () => {
 }
 
 export default page
+
+
+

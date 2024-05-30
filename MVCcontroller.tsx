@@ -1,7 +1,17 @@
 import { mdListCert, useListCert } from "./MVCmodel"
 
-function createItem(data){
+async function createItem(data){
     alert(`running post api for DSKhenThuong table of mysql \ntitle: ${data.name}\nlink: ${data.url}`)
+    const url = 'http://192.168.0.192:5000/add'
+    var body = {"FullName":''}
+    body.FullName=data.name
+    const response = await fetch(url, {
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body)
+    })
 };
 export {createItem}
 
